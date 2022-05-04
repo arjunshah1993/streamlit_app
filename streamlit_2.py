@@ -10,7 +10,7 @@ st.title("Sales Data Analysis")
 @st.cache
 def get_data():
     
-    df = pd.read_csv('sales_data.csv', encoding='ANSI', parse_dates=['OrderDate'])
+    df = pd.read_csv('sales.csv', parse_dates=['OrderDate'])
     df['Year'] = df['OrderDate'].dt.strftime('%Y') # year column for aggregations
     df['Month'] = df['OrderDate'].dt.to_period('M').dt.to_timestamp() # month column for aggregations
     return df
